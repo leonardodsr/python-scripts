@@ -1,15 +1,18 @@
-import subprocess
+import subprocess, os
+
 
 selecao = input("lista ou unico?: ")
 
+
 if selecao == 'lista':
 	for server in open('server_list.txt'):
-		subprocess.Popen(('nslookup' + server))
+		os.system('nslookup' + server)
+		#subprocess.Popen(['nslookup' + server])
 elif selecao == 'unico':
-	dominio = input('Insira o Domínio a ser pesquisado: ')
-	subprocess.Popen(('nslookup' + dominio))
+	dominio = input('Insira o Dominio a ser pesquisado: ')
+	os.system('nslookup '+dominio)
+	#subprocess.Popen(['nslookup ' + dominio])
 else:
-	print('Opçao inválida!'')
-	
-	
+	print('Opcao invalida!')
+
 
